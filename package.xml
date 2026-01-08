@@ -4,7 +4,7 @@
   <name>agv_ros</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="trandanhquang2005@email.com">TRANDANHQUANG</maintainer>
+  <maintainer email="quang.trandanh05@hcmut.edu.vn">TRANDANHQUANG</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
