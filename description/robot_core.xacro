@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <xacro:include filename="inertial_macros.xacro"/>
     <!-- Materials -->
     <material name="white">
         <color rgba="1 1 1 1"/>
@@ -56,6 +57,9 @@
                 <box size="${chassis_L} ${chassis_W} ${chassis_H}"/>
             </geometry>
         </collision>
+        <xacro:inertial_box mass="0.5" x="${chassis_L}" y="${chassis_W}" z="${chassis_H}">
+            <origin xyz="${chassis_L/2} 0 ${chassis_H/2}" rpy="0 0 0"/>
+        </xacro:inertial_box>
     </link>
 
 
@@ -82,6 +86,9 @@
                 <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
             </geometry>
         </collision>
+        <xacro:inertial_cylinder mass="0.1" length="${wheel_width}" radius="${wheel_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
     <!-- Right wheel -->
@@ -106,9 +113,11 @@
                 <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
             </geometry>
         </collision>
+        <xacro:inertial_cylinder mass="0.1" length="${wheel_width}" radius="${wheel_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
     </link>
 
-    <!-- Caster wheel -->
 
 
     <!-- Caster wheel -->
@@ -133,6 +142,9 @@
                 <sphere radius="${caster_radius}"/>
             </geometry>
         </collision>
+        <xacro:inertial_sphere mass="0.1" radius="${caster_radius}">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_sphere>
     </link>
 
 </robot>
