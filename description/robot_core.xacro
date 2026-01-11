@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+  <!-- Materials -->
+  <material name="white"><color rgba="1 1 1 1"/></material>
+  <material name="orange"><color rgba="1 0.5 0 1"/></material>
+  <material name="blue"><color rgba="0 0 1 1"/></material>
+  <material name="black"><color rgba="0 0 0 1"/></material>
+
+  <!-- Chassis dimensions -->
+  <xacro:property name="chassis_L" value="0.275"/>
+  <xacro:property name="chassis_W" value="0.15"/>
+  <xacro:property name="chassis_H" value="0.1"/>
+
+  <link name="base_link"/>
+
+  <!-- Chassis frame -->
+  <joint name="chassis_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassis"/>
+    <origin xyz="-0.075 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="chassis">
+    <visual>
+      <!-- Box origin at the back of AGV -->
+      <origin xyz="${chassis_L/2} 0 ${chassis_H/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${chassis_L} ${chassis_W} ${chassis_H}"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+
+    <!-- Nên thêm collision giống visual để sau này mô phỏng/plan -->
+    <collision>
+      <origin xyz="${chassis_L/2} 0 ${chassis_H/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${chassis_L} ${chassis_W} ${chassis_H}"/>
+      </geometry>
+    </collision>
+  </link>
+
+</robot>
