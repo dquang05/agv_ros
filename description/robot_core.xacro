@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-
+    <xacro:include filename="robot_parameters.xacro"/>
     <xacro:include filename="inertial_macros.xacro"/>
+
     <!-- Materials -->
     <material name="white">
         <color rgba="1 1 1 1"/>
@@ -15,21 +16,6 @@
     <material name="black">
         <color rgba="0 0 0 1"/>
     </material>
-
-    <!-- Chassis dimensions -->
-    <xacro:property name="chassis_L" value="0.275"/>
-    <xacro:property name="chassis_W" value="0.15"/>
-    <xacro:property name="chassis_H" value="0.1"/>
-
-    <!-- Wheel params -->
-    <xacro:property name="wheel_radius" value="0.037"/>
-    <!-- 74mm diameter -->
-    <xacro:property name="wheel_width" value="0.02"/>
-    <!-- 20mm thick -->
-
-    <!-- Caster wheel params -->
-    <xacro:property name="caster_radius" value="0.02"/>
-
     <!-- Base link -->
 
     <link name="base_link">
@@ -159,5 +145,7 @@
 
     <gazebo reference="caster_wheel">
         <material>Gazebo/Blue</material>
+        <mu1 value="0.001"/>
+        <mu2 value="0.001"/>
     </gazebo>
 </robot>

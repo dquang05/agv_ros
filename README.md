@@ -36,4 +36,6 @@ rviz2 -d ~/dev_ws/src/agv_ros/config/view_bot.rviz
 ros2 launch agv_ros rsp.launch.py use_sim_time:=true
 ros2 launch gazebo_ros gazebo.launch.py
 ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity agv_bot 
+
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ``` 
